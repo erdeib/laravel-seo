@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use function array_filter;
 use function array_key_exists;
 use function array_keys;
+use function count;
 use function is_array;
 use function method_exists;
 use function property_exists;
@@ -110,6 +111,7 @@ trait HasData
 
         if (method_exists($this, $method)) {
             $this->{$method}($this->defaults[$key]);
+
             return;
         }
 

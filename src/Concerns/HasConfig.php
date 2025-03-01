@@ -23,7 +23,7 @@ trait HasConfig
     {
         $this->config = array_filter(
             [...$this->config, ...$data],
-            //remove meaningless config
+            // remove meaningless config
             static fn (mixed $value): bool => !in_array($value, [null, '', []], true),
         );
 

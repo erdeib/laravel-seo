@@ -24,7 +24,7 @@ use function view;
 
 final class OpenGraphGenerator implements GeneratesMetadata
 {
-    use HasDefaults, HasData, HasConfig;
+    use HasConfig, HasData, HasDefaults;
 
     public const PREFIX = 'og: https://ogp.me/ns#';
 

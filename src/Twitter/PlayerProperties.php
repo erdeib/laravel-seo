@@ -13,8 +13,7 @@ class PlayerProperties implements Card
         public readonly string $width,
         public readonly string $height,
         public readonly ?string $stream,
-    ) {
-    }
+    ) {}
 
     public function getName(): string
     {

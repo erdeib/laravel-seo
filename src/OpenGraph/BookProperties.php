@@ -8,7 +8,7 @@ use DateTime;
 use Honeystone\Seo\OpenGraph\Contracts\Taggable;
 use Honeystone\Seo\OpenGraph\Contracts\Type;
 
-class BookProperties implements Type, Taggable
+class BookProperties implements Taggable, Type
 {
     /**
      * @param ProfileProperties|array<ProfileProperties>|null $author
@@ -19,8 +19,7 @@ class BookProperties implements Type, Taggable
         public readonly ?string $isbn = null,
         public readonly ?DateTime $releaseDate = null,
         public string|array|null $tag = null,
-    ) {
-    }
+    ) {}
 
     public function getPrefix(): string
     {

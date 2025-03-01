@@ -16,7 +16,7 @@ use function view;
 
 final class MetaGenerator implements GeneratesMetadata
 {
-    use HasDefaults, HasData, HasConfig;
+    use HasConfig, HasData, HasDefaults;
 
     /**
      * @var array<string>

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Honeystone\Seo\Generators;
 
+use const JSON_THROW_ON_ERROR;
+
 use Honeystone\Seo\Concerns\HasConfig;
 use Honeystone\Seo\Concerns\HasData;
 use Honeystone\Seo\Concerns\HasDefaults;
@@ -25,11 +27,9 @@ use function rtrim;
 use function unlink;
 use function view;
 
-use const JSON_THROW_ON_ERROR;
-
 final class RealFaviconGenerator implements GeneratesMetadata
 {
-    use HasDefaults, HasData, HasConfig;
+    use HasConfig, HasData, HasDefaults;
 
     /**
      * @var array<string, bool>
@@ -138,7 +138,7 @@ final class RealFaviconGenerator implements GeneratesMetadata
 
     private function extractPackage(): void
     {
-        $zip = new ZipArchive();
+        $zip = new ZipArchive;
 
         if ($zip->open($this->getFaviconPath('package.zip')) === false) {
             throw new RuntimeException('Unable to open favicon package.');

@@ -19,8 +19,7 @@ class AppProperties implements Card
         public readonly ?string $googlePlayName = null,
         public readonly ?string $googlePlayUrl = null,
         public readonly ?string $country = null,
-    ) {
-    }
+    ) {}
 
     public function getName(): string
     {

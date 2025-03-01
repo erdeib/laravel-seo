@@ -37,6 +37,7 @@ final class GenerateFavicons extends Command
 
         if (file_exists(public_path($storagePath))) {
             error('Favicons have already been generated. Remove `/public/'.$storagePath.'` before regenerating them.');
+
             return 1;
         }
 
@@ -69,6 +70,7 @@ final class GenerateFavicons extends Command
 
             if (!file_exists($image)) {
                 error('This image does not exist.');
+
                 return 1;
             }
 
@@ -81,6 +83,8 @@ final class GenerateFavicons extends Command
             callback: fn () => seo()->faviconFetch($key, $image),
         );
 
-        info('Favicons generated successfully.');  return 0;
+        info('Favicons generated successfully.');
+
+        return 0;
     }
 }

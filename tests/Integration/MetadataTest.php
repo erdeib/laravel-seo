@@ -30,7 +30,7 @@ it('propagates the default locale', function (): void {
     seo()->locale('Foo');
 
     expect(trim((string) seo()->generate('open-graph')))->toBe(
-        <<<END
+        <<<'END'
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -48,7 +48,7 @@ it('overrides the locale', function (): void {
         ->openGraphLocale('Bar');
 
     expect(trim((string) seo()->generate('open-graph')))->toBe(
-        <<<END
+        <<<'END'
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -64,7 +64,7 @@ it('propagates the default title', function (): void {
     seo()->title('Foo', template: false);
 
     expect(trim((string) seo()->generate()))->toBe(
-<<<END
+        <<<END
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     <title>Foo</title>
     <link rel="canonical" href="https://mywebsite.com">
@@ -89,7 +89,7 @@ it('propagates the default title and template', function (): void {
     seo()->title('Foo', '--{title}--');
 
     expect(trim((string) seo()->generate()))->toBe(
-<<<END
+        <<<END
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     <title>--Foo--</title>
     <link rel="canonical" href="https://mywebsite.com">
@@ -114,7 +114,7 @@ it('propagates the default title and concat template', function (): void {
     seo()->title('Foo', 'Bar');
 
     expect(trim((string) seo()->generate()))->toBe(
-<<<END
+        <<<END
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     <title>Foo - Bar</title>
     <link rel="canonical" href="https://mywebsite.com">
@@ -139,7 +139,7 @@ it('propagates the default title and blank template', function (): void {
     seo()->title('Foo', '');
 
     expect(trim((string) seo()->generate()))->toBe(
-<<<END
+        <<<END
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     <title>Foo</title>
     <link rel="canonical" href="https://mywebsite.com">
@@ -403,7 +403,7 @@ it('overrides the canonical url', function (): void {
         ->metaCanonical('https://bar.baz');
 
     expect(trim((string) seo()->generate('meta')))->toBe(
-        <<<END
+        <<<'END'
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     <link rel="canonical" href="https://bar.baz">
 <!-- End Honeystone SEO -->
@@ -417,7 +417,7 @@ it('propagates the default canonical enabled flag', function (): void {
         ->canonicalEnabled(false);
 
     expect(trim((string) seo()->generate('meta')))->toBe(
-        <<<END
+        <<<'END'
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     
 <!-- End Honeystone SEO -->
@@ -432,7 +432,7 @@ it('overrides the canonical enabled flag', function (): void {
         ->metaCanonicalEnabled(true);
 
     expect(trim((string) seo()->generate('meta')))->toBe(
-        <<<END
+        <<<'END'
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     <link rel="canonical" href="https://mywebsite.com">
 <!-- End Honeystone SEO -->
@@ -514,7 +514,7 @@ it('adds custom meta tags', function (): void {
         ->metaTag('Bar', ['Foo', 'Baz']);
 
     expect(trim((string) seo()->generate('meta')))->toBe(
-        <<<END
+        <<<'END'
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     <link rel="canonical" href="https://mywebsite.com">
     <meta name="Foo" content="Bar">
@@ -531,7 +531,7 @@ it('default custom meta tags are ignored', function (): void {
         ->defaults(['tag' => [['Foo' => 'Bar']]]);
 
     expect(trim((string) seo()->generate('meta')))->toBe(
-        <<<END
+        <<<'END'
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     <link rel="canonical" href="https://mywebsite.com">
 <!-- End Honeystone SEO -->
@@ -556,7 +556,7 @@ it('configured custom meta tags are merged', function (): void {
         ->metaTag('Bar', 'Baz');
 
     expect(trim((string) seo()->generate('meta')))->toBe(
-        <<<END
+        <<<'END'
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     <link rel="canonical" href="https://mywebsite.com">
     <meta name="Foo" content="Bar">
@@ -579,7 +579,7 @@ it('enables twitter', function (): void {
         ->twitterEnabled(true);
 
     expect(trim((string) seo()->generate('twitter')))->toBe(
-        <<<END
+        <<<'END'
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
@@ -601,7 +601,7 @@ it('disables twitter', function (): void {
         ->twitterEnabled(false);
 
     expect(trim((string) seo()->generate('twitter')))->toBe(
-        <<<END
+        <<<'END'
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     
 <!-- End Honeystone SEO -->
@@ -615,7 +615,7 @@ it('sets the twitter card using a string', function (): void {
         ->twitterCard('summary');
 
     expect(trim((string) seo()->generate('twitter')))->toBe(
-        <<<END
+        <<<'END'
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary">
@@ -640,7 +640,7 @@ it('sets the twitter card to app', function (): void {
         ));
 
     expect(trim((string) seo()->generate('twitter')))->toBe(
-        <<<END
+        <<<'END'
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="app">
@@ -669,7 +669,7 @@ it('sets the twitter card to player', function (): void {
         ));
 
     expect(trim((string) seo()->generate('twitter')))->toBe(
-        <<<END
+        <<<'END'
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="player">
@@ -695,7 +695,7 @@ it('sets the twitter creator', function (): void {
         ->twitterCreator('Foo');
 
     expect(trim((string) seo()->generate('twitter')))->toBe(
-        <<<END
+        <<<'END'
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
@@ -718,7 +718,7 @@ it('sets the twitter creator id', function (): void {
         ->twitterCreatorId('123');
 
     expect(trim((string) seo()->generate('twitter')))->toBe(
-        <<<END
+        <<<'END'
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
@@ -734,7 +734,7 @@ it('sets the twitter image and alt', function (): void {
         ->twitterImage('https://mywebsite/image-2.png', 'Foo');
 
     expect(trim((string) seo()->generate('twitter')))->toBe(
-        <<<END
+        <<<'END'
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
@@ -762,7 +762,7 @@ it('enables open graph', function (): void {
         ->openGraphEnabled(true);
 
     expect(trim((string) seo()->generate('open-graph')))->toBe(
-        <<<END
+        <<<'END'
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -785,7 +785,7 @@ it('disables open graph', function (): void {
         ->openGraphEnabled(false);
 
     expect(trim((string) seo()->generate('open-graph')))->toBe(
-        <<<END
+        <<<'END'
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     
 <!-- End Honeystone SEO -->
@@ -806,7 +806,7 @@ it('sets the open graph type using a string', function (): void {
         ->openGraphType('article');
 
     expect(trim((string) seo()->generate('open-graph')))->toBe(
-        <<<END
+        <<<'END'
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     <!-- Open Graph -->
     <meta property="og:type" content="article">
@@ -818,7 +818,7 @@ END
 
 it('sets the open graph type to article properties', function (): void {
 
-    $now = new DateTime();
+    $now = new DateTime;
 
     seo()
         ->config([
@@ -878,7 +878,7 @@ it('sets the open graph type to profile properties', function (): void {
     expect(seo()->openGraphPrefix())->toBe('og: https://ogp.me/ns# profile: https://ogp.me/ns/profile#');
 
     expect(trim((string) seo()->generate('open-graph')))->toBe(
-        <<<END
+        <<<'END'
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     <!-- Open Graph -->
     <meta property="og:type" content="profile">
@@ -929,7 +929,7 @@ it('sets the open graph type to book properties', function (): void {
     expect(seo()->openGraphPrefix())->toBe('og: https://ogp.me/ns# book: https://ogp.me/ns/book#');
 
     expect(trim((string) seo()->generate('open-graph')))->toBe(
-        <<<END
+        <<<'END'
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     <!-- Open Graph -->
     <meta property="og:type" content="book">
@@ -964,7 +964,7 @@ it('sets the open graph image using image properties', function (): void {
         ));
 
     expect(trim((string) seo()->generate('open-graph')))->toBe(
-        <<<END
+        <<<'END'
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -999,11 +999,11 @@ it('sets the open graph images using image properties', function (): void {
                 height: '500',
                 secureUrl: 'https://foo.bar/img1.png',
                 type: 'image/png',
-            )
+            ),
         ]);
 
     expect(trim((string) seo()->generate('open-graph')))->toBe(
-        <<<END
+        <<<'END'
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -1031,7 +1031,7 @@ it('sets one open graph audio using a string', function (): void {
         ->openGraphAudio('https://foo.bar/song.mp3');
 
     expect(trim((string) seo()->generate('open-graph')))->toBe(
-        <<<END
+        <<<'END'
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -1052,7 +1052,7 @@ it('sets one open graph audio using audio properties', function (): void {
         ));
 
     expect(trim((string) seo()->generate('open-graph')))->toBe(
-        <<<END
+        <<<'END'
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -1074,7 +1074,7 @@ it('sets the open graph audio using strings', function (): void {
         ]);
 
     expect(trim((string) seo()->generate('open-graph')))->toBe(
-        <<<END
+        <<<'END'
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -1103,7 +1103,7 @@ it('sets the open graph audio using audio properties', function (): void {
         ]);
 
     expect(trim((string) seo()->generate('open-graph')))->toBe(
-        <<<END
+        <<<'END'
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -1125,7 +1125,7 @@ it('sets the open graph video using a string', function (): void {
         ->openGraphVideo('https://foo.bar/movie.mp4');
 
     expect(trim((string) seo()->generate('open-graph')))->toBe(
-        <<<END
+        <<<'END'
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -1149,7 +1149,7 @@ it('sets the open graph video using video properties', function (): void {
         ));
 
     expect(trim((string) seo()->generate('open-graph')))->toBe(
-        <<<END
+        <<<'END'
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -1188,7 +1188,7 @@ it('sets the open graph videos using video properties', function (): void {
         ]);
 
     expect(trim((string) seo()->generate('open-graph')))->toBe(
-        <<<END
+        <<<'END'
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -1219,7 +1219,7 @@ it('sets the open graph videos using strings', function (): void {
         ]);
 
     expect(trim((string) seo()->generate('open-graph')))->toBe(
-        <<<END
+        <<<'END'
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -1237,7 +1237,7 @@ it('sets the open graph determiner', function (): void {
         ->openGraphDeterminer(OpenGraphGenerator::DETERMINER_THE);
 
     expect(trim((string) seo()->generate('open-graph')))->toBe(
-        <<<END
+        <<<'END'
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -1254,14 +1254,13 @@ it('throws an exception when given an invalid open graph determiner', function (
 
 })->throws(UnexpectedValueException::class);
 
-
 it('sets alternate open graph locales', function (): void {
 
     seo()
         ->openGraphAlternateLocales(['en_US', 'en_GB']);
 
     expect(trim((string) seo()->generate('open-graph')))->toBe(
-        <<<END
+        <<<'END'
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -1280,7 +1279,7 @@ it('adds custom open graph properties', function (): void {
         ->openGraphProperty('Bar', ['Foo', 'Baz']);
 
     expect(trim((string) seo()->generate('open-graph')))->toBe(
-        <<<END
+        <<<'END'
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -1299,7 +1298,7 @@ it('default custom open graph properties are ignored', function (): void {
         ->defaults(['property' => [['Foo' => 'Bar']]]);
 
     expect(trim((string) seo()->generate('open-graph')))->toBe(
-        <<<END
+        <<<'END'
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -1326,7 +1325,7 @@ it('configured custom open graph properties are merged', function (): void {
         ->openGraphProperty('Bar', 'Baz');
 
     expect(trim((string) seo()->generate('open-graph')))->toBe(
-        <<<END
+        <<<'END'
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -1375,7 +1374,7 @@ it('disables json-ld', function (): void {
         ->jsonLdEnabled(false);
 
     expect(trim((string) seo()->generate('json-ld')))->toBe(
-        <<<END
+        <<<'END'
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     
 <!-- End Honeystone SEO -->
@@ -1427,7 +1426,7 @@ it('sets the json-ld id to url and appends hash', function (): void {
 
     seo()->jsonLdId(
         useUrl: true,
-        append:'#LocalBusiness',
+        append: '#LocalBusiness',
     );
 
     expect(trim((string) seo()->generate('json-ld')))->toBe(
@@ -1572,20 +1571,20 @@ it('builds a json-ld graph', function (): void {
 
     seo()->config([
         'generators' => [
-            //place-on-graph was not available on 1.0, so we'll remove it from the config
+            // place-on-graph was not available on 1.0, so we'll remove it from the config
             JsonLdGenerator::class => ['place-on-graph' => null],
         ],
     ]);
 
     seo()->jsonLdGraph()
         ->organization('honeystone')
-            ->name('Honeystone')
-            ->legalName('Honeystone Consulting Ltd.');
+        ->name('Honeystone')
+        ->legalName('Honeystone Consulting Ltd.');
 
     seo()->jsonLdGraph()
         ->person('piranhageorge')
-            ->givenName('George')
-            ->familyName('Palmer');
+        ->givenName('George')
+        ->familyName('Palmer');
 
     expect(trim((string) seo()->generate('json-ld')))->toBe(
         <<<END
@@ -1603,20 +1602,20 @@ it('builds a json-ld multi', function (): void {
 
     seo()->config([
         'generators' => [
-            //place-on-graph was not available on 1.0, so we'll remove it from the config
+            // place-on-graph was not available on 1.0, so we'll remove it from the config
             JsonLdGenerator::class => ['place-on-graph' => null],
         ],
     ]);
 
     seo()->jsonLdMulti()
         ->organization()
-            ->legalName('George Palmer inc,');
+        ->legalName('George Palmer inc,');
 
     seo()->jsonLdMulti()
         ->person()
-            ->name('George Palmer')
-            ->givenName('George')
-            ->familyName('Palmer');
+        ->name('George Palmer')
+        ->givenName('George')
+        ->familyName('Palmer');
 
     expect(trim((string) seo()->generate('json-ld')))->toBe(
         <<<END
@@ -1634,12 +1633,12 @@ it('imports a json-ld graph', function (): void {
 
     seo()->config([
         'generators' => [
-            //place-on-graph was not available on 1.0, so we'll remove it from the config
+            // place-on-graph was not available on 1.0, so we'll remove it from the config
             JsonLdGenerator::class => ['place-on-graph' => null],
         ],
     ]);
 
-    $graph = new Graph();
+    $graph = new Graph;
 
     $graph->person('piranhageorge')
         ->givenName('George')
@@ -1662,7 +1661,7 @@ END
 it('imports a json-ld type', function (): void {
 
     seo()->jsonLdImport(
-        (new Person())
+        (new Person)
             ->name('George Palmer'),
     );
 
@@ -1682,17 +1681,16 @@ it('imports a json-ld multi type', function (): void {
 
     seo()->config([
         'generators' => [
-            //place-on-graph was not available on 1.0, so we'll remove it from the config
+            // place-on-graph was not available on 1.0, so we'll remove it from the config
             JsonLdGenerator::class => ['place-on-graph' => null],
         ],
     ]);
 
-    $multi = new MultiTypedEntity();
+    $multi = new MultiTypedEntity;
 
     $multi->person()
         ->givenName('George')
         ->familyName('Palmer');
-
 
     seo()
         ->jsonLdName('George Palmer')
@@ -1725,8 +1723,8 @@ it('places configured json-ld on the graph', function (): void {
         ->jsonLdType('Person')
         ->jsonLdName('Foo')
         ->jsonLdGraph()
-            ->organization()
-                ->name('Bar');
+        ->organization()
+        ->name('Bar');
 
     expect(trim((string) seo()->generate('json-ld')))->toBe(
         <<<END
@@ -1755,10 +1753,10 @@ it('places configured json-ld on multi', function (): void {
         ->jsonLdType('Person')
         ->jsonLdName('Foo')
         ->jsonLdMulti()
-            ->organization()
-                ->name('Bar');
+        ->organization()
+        ->name('Bar');
 
-    //the name will be Foo because the multi must exist first to place the json-ld on it
+    // the name will be Foo because the multi must exist first to place the json-ld on it
     expect(trim((string) seo()->generate('json-ld')))->toBe(
         <<<END
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
@@ -1776,7 +1774,7 @@ it('provides access to configured schema-org', function (): void {
     seo()
         ->title('Foo')
         ->jsonLdSchema()
-            ->description('Bar');
+        ->description('Bar');
 
     expect(trim((string) seo()->generate('json-ld')))->toBe(
         <<<END
@@ -1795,7 +1793,7 @@ test('configured values take precedence over schema-org values', function (): vo
     seo()
         ->title('Foo')
         ->jsonLdSchema()
-            ->name('Bar');
+        ->name('Bar');
 
     expect(trim((string) seo()->generate('json-ld')))->toBe(
         <<<END
@@ -1814,7 +1812,7 @@ test('configured values can be modified after accessing schema-org', function ()
     seo()
         ->title('Foo')
         ->jsonLdSchema()
-            ->name('Bar');
+        ->name('Bar');
 
     seo()->jsonLdName('Baz');
 
@@ -1866,7 +1864,6 @@ it('throws an exception for expected, but not checked in json-ld', function (): 
     seo()->generate();
 
 })->throws(RuntimeException::class, 'The following (1) expected JSON-LD components failed to check-in: foo');
-
 
 it('throws an exception for checked in, but not expected json-ld', function (): void {
 

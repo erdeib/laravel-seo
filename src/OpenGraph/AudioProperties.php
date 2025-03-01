@@ -10,6 +10,5 @@ class AudioProperties
         public readonly ?string $url = null,
         public readonly ?string $secureUrl = null,
         public readonly ?string $type = null,
-    ) {
-    }
+    ) {}
 }

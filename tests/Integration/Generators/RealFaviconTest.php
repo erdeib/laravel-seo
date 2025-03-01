@@ -28,7 +28,7 @@ it('fetches favicons', function (): void {
         ->faviconFetch('foobar', __DIR__.'/Fixture/rocket.svg');
 
     expect(trim((string) seo()->generate('favicon')))->toBe(
-        <<<END
+        <<<'END'
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     <!-- Favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
@@ -57,7 +57,8 @@ it('fetches favicons in two stages', function (): void {
         seo()
             ->faviconFetch('foobar', __DIR__.'/Fixture/rocket.svg');
 
-    } catch (Throwable) {}
+    } catch (Throwable) {
+    }
 
     expect(seo()->faviconGenerate())->toBeNull();
 
@@ -65,7 +66,7 @@ it('fetches favicons in two stages', function (): void {
         ->faviconFetch('foobar');
 
     expect(trim((string) seo()->generate('favicon')))->toBe(
-        <<<END
+        <<<'END'
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     <!-- Favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
@@ -144,7 +145,7 @@ it('fetches favicons using command', function (): void {
     $this->artisan('seo:generate-favicons')->assertSuccessful();
 
     expect(trim((string) seo()->generate('favicon')))->toBe(
-        <<<END
+        <<<'END'
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     <!-- Favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
@@ -176,7 +177,7 @@ it('fetches favicons using command without config', function (): void {
         ->assertSuccessful();
 
     expect(trim((string) seo()->generate('favicon')))->toBe(
-        <<<END
+        <<<'END'
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     <!-- Favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">

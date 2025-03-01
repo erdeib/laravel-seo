@@ -16,7 +16,7 @@ use function view;
 
 final class TwitterGenerator implements GeneratesMetadata
 {
-    use HasDefaults, HasData, HasConfig;
+    use HasConfig, HasData, HasDefaults;
 
     public function getName(): string
     {

@@ -13,8 +13,7 @@ class ProfileProperties implements Type
         public readonly ?string $lastName = null,
         public readonly ?string $username = null,
         public readonly ?string $gender = null,
-    ) {
-    }
+    ) {}
 
     public function getPrefix(): string
     {

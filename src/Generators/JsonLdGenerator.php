@@ -30,7 +30,7 @@ use function view;
 
 final class JsonLdGenerator implements GeneratesMetadata
 {
-    use HasDefaults, HasData, HasConfig;
+    use HasConfig, HasData, HasDefaults;
 
     /**
      * @var array<string, mixed>
@@ -169,7 +169,7 @@ final class JsonLdGenerator implements GeneratesMetadata
             return $this->imported;
         }
 
-        return $this->imported = new Graph();
+        return $this->imported = new Graph;
     }
 
     public function multi(): MultiTypedEntity
@@ -178,7 +178,7 @@ final class JsonLdGenerator implements GeneratesMetadata
             return $this->imported;
         }
 
-        return $this->imported = new MultiTypedEntity();
+        return $this->imported = new MultiTypedEntity;
     }
 
     public function schema(): ?BaseType
@@ -201,7 +201,7 @@ final class JsonLdGenerator implements GeneratesMetadata
         }
 
         if (!$this->schema instanceof $typeClass) {
-            $this->schema = new $typeClass();
+            $this->schema = new $typeClass;
         }
 
         return $this->schema
@@ -223,8 +223,6 @@ final class JsonLdGenerator implements GeneratesMetadata
     }
 
     /**
-     * @param string ...$components
-     *
      * @return $this
      */
     public function expect(string ...$components): self
@@ -235,8 +233,6 @@ final class JsonLdGenerator implements GeneratesMetadata
     }
 
     /**
-     * @param string ...$components
-     *
      * @return $this
      */
     public function checkIn(string ...$components): self

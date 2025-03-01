@@ -40,6 +40,7 @@ final class SeoServiceProvider extends PackageServiceProvider
             if (function_exists('csp_nonce')) {
                 return '<?php echo seo()->jsonLdNonce(csp_nonce())->generate(...($only ?? [])); ?>';
             }
+
             return '<?php echo seo()->generate(...($only ?? [])); ?>';
         });
         Blade::directive('openGraphPrefix', static fn (): string => '<?php echo seo()->openGraphPrefix(); ?>');

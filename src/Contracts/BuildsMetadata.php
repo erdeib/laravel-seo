@@ -102,8 +102,6 @@ interface BuildsMetadata extends GeneratesMetadata
     public function description(?string $value): self;
 
     /**
-     * @param string ...$value
-     *
      * @return $this
      */
     public function keywords(?string ...$value): self;
@@ -124,15 +122,11 @@ interface BuildsMetadata extends GeneratesMetadata
     public function canonicalEnabled(bool $value): self;
 
     /**
-     * @param string ...$value
-     *
      * @return $this
      */
     public function images(?string ...$value): self;
 
     /**
-     * @param string ...$value
-     *
      * @return $this
      */
     public function robots(?string ...$value): self;

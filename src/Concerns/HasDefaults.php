@@ -7,6 +7,8 @@ namespace Honeystone\Seo\Concerns;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
+use function method_exists;
+
 trait HasDefaults
 {
     /**

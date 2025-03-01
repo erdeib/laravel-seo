@@ -13,21 +13,21 @@ return [
             'description' => '',
             'keywords' => [],
             'canonicalEnabled' => true,
-            'canonical' => null, //null to use current url
+            'canonical' => null, // null to use current url
             'robots' => [],
             'custom' => [
-                //[
-                //    'greeting' => 'Hey, thanks for checking out the source code of our website. '.
-                //        'Hopefully you find what you are looking for 👍'
-                //],
-                //[
-                //    'google-site-verification' => 'xxx',
-                //],
+                // [
+                //     'greeting' => 'Hey, thanks for checking out the source code of our website. '.
+                //         'Hopefully you find what you are looking for 👍'
+                // ],
+                // [
+                //     'google-site-verification' => 'xxx',
+                // ],
             ],
         ],
         Generators\TwitterGenerator::class => [
             'enabled' => true,
-            'site' => '', //@twitterUsername
+            'site' => '', // @twitterUsername
             'card' => 'summary_large_image',
             'creator' => '',
             'creatorId' => '',
@@ -46,7 +46,7 @@ return [
             'audio' => [],
             'videos' => [],
             'determiner' => '',
-            'url' => null, //null to use current url
+            'url' => null, // null to use current url
             'locale' => '',
             'alternateLocales' => [],
             'custom' => [],
@@ -58,18 +58,18 @@ return [
             'name' => '',
             'description' => '',
             'images' => [],
-            'url' => null, //null to use current url
+            'url' => null, // null to use current url
             'custom' => [],
 
-            //determines if the configured json-ld is automatically placed on the graph
+            // determines if the configured json-ld is automatically placed on the graph
             'place-on-graph' => true,
         ],
         Generators\RealFaviconGenerator::class => [
             'enabled' => true,
             'apiKey' => env('REAL_FAVICON_KEY'),
-            'image' => '', //the source image path, relative to /resources
+            'image' => '', // the source image path, relative to /resources
 
-            //see https://realfavicongenerator.net/api/non_interactive_api#favicon_design
+            // see https://realfavicongenerator.net/api/non_interactive_api#favicon_design
             'design' => [
                 'ios' => [
                     'picture_aspect' => 'no_change',
@@ -122,7 +122,7 @@ return [
                 ],
             ],
 
-            //see https://realfavicongenerator.net/api/non_interactive_api#settings
+            // see https://realfavicongenerator.net/api/non_interactive_api#settings
             'settings' => [
                 'compression' => 3,
                 'scaling_algorithm' => 'Mitchell',

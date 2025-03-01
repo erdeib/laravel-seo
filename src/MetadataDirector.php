@@ -27,11 +27,10 @@ use function view;
 final class MetadataDirector implements BuildsMetadata
 {
     use Conditionable;
-    use HasDefaults;
-
     use HasConfig {
         config as private setConfig;
     }
+    use HasDefaults;
 
     public function __construct(
         private readonly RegistersGenerators $register,

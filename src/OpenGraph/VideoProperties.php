@@ -13,6 +13,5 @@ class VideoProperties
         public readonly ?string $height = null,
         public readonly ?string $secureUrl = null,
         public readonly ?string $type = null,
-    ) {
-    }
+    ) {}
 }
