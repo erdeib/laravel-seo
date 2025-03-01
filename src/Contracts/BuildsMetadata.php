@@ -9,6 +9,7 @@ use Honeystone\Seo\OpenGraph\Contracts\Type;
 use Honeystone\Seo\OpenGraph\ImageProperties;
 use Honeystone\Seo\OpenGraph\VideoProperties;
 use Honeystone\Seo\Twitter\Contracts\Card;
+use Spatie\SchemaOrg\BaseType;
 use Spatie\SchemaOrg\Graph;
 use Spatie\SchemaOrg\MultiTypedEntity;
 
