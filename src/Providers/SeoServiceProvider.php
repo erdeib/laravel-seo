@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Honeystone\Seo\Providers;
 
-use Honeystone\Seo\Commands\GenerateFavicons;
 use Honeystone\Seo\Contracts\BuildsMetadata;
 use Honeystone\Seo\Contracts\RegistersGenerators;
 use Honeystone\Seo\MetadataDirector;
@@ -24,7 +23,6 @@ final class SeoServiceProvider extends PackageServiceProvider
         $package
             ->name('honeystone-seo')
             ->setBasePath(dirname(__DIR__))
-            ->hasCommand(GenerateFavicons::class)
             ->hasConfigFile()
             ->hasViews();
     }

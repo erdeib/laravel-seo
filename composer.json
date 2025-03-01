@@ -9,7 +9,6 @@
     "twitter",
     "opengraph",
     "json-ld",
-    "favicons",
     "laravel"
   ],
   "authors": [
@@ -24,7 +23,6 @@
     "php": "^8.2",
     "ext-zip": "*",
     "illuminate/contracts": "^10.0|^11.0",
-    "laravel/prompts": "^0.1.25",
     "spatie/laravel-package-tools": "^1.16.4"
   },
   "require-dev": {
