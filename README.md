@@ -505,6 +505,19 @@ class PageController
 To create a custom generator, simply implement the `Honeystone\Seo\Contracts\MetadataGenerator` contract and add it to
 your config file in the generators section. You can specify any configuration for your generator here too.
 
+### Removing the source comments
+
+The package includes comments in the generated HTML. If you would like to remove
+them, you can publish the views and remove the comments from the Blade files:
+
+```shell
+php artisan vendor:publish --tag=honeystone-seo-views
+```
+
+Publishing the package views is generally not recommended as these files will
+not be updated when the package is updated. If it is absolutely necessary to
+publish the views, we recommend only publishing the files you need to modify.
+
 ### Configuration
 
 Here's the full config file:
