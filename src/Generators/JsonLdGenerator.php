@@ -260,7 +260,7 @@ final class JsonLdGenerator implements GeneratesMetadata
      */
     private function generateJsonLd(array $data): string
     {
-        $flags = JSON_UNESCAPED_UNICODE;
+        $flags = JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR;
 
         if ($this->config['pretty'] ?? false) {
             $flags |= JSON_PRETTY_PRINT;

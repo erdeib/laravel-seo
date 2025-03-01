@@ -1874,3 +1874,19 @@ it('throws an exception for checked in, but not expected json-ld', function (): 
     seo()->generate();
 
 })->throws(RuntimeException::class, 'The following (1) unexpected JSON-LD components checked-in: bar');
+
+it('throws an exception when given unserialisable data', function (): void {
+
+    seo()->config([
+        'generators' => [
+            jsonLdGenerator::class => [
+                'custom' => [
+                    'meh' => INF,
+                ],
+            ],
+        ],
+    ]);
+
+    seo()->generate();
+
+})->throws(JsonException::class);
