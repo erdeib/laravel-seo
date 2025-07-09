@@ -818,7 +818,9 @@ END
 
 it('sets the open graph type to article properties', function (): void {
 
-    $now = new DateTime;
+    $publishedTime = new DateTime('now');
+    $modifiedTime = (new DateTime('now'))->modify('-1 hour');
+    $expirationTime = (new DateTime('now'))->modify('+1 hour');
 
     seo()
         ->config([
@@ -829,9 +831,9 @@ it('sets the open graph type to article properties', function (): void {
             ],
         ])
         ->openGraphType(new ArticleProperties(
-            publishedTime: $now,
-            modifiedTime: $now,
-            expirationTime: $now,
+            publishedTime: $publishedTime,
+            modifiedTime: $modifiedTime,
+            expirationTime: $expirationTime,
             author: new ProfileProperties(
                 username: 'PiranhaGeorge',
             ),
@@ -846,9 +848,9 @@ it('sets the open graph type to article properties', function (): void {
 <!-- Metadata generated using Honeystone SEO: https://github.com/honeystone/laravel-seo -->
     <!-- Open Graph -->
     <meta property="og:type" content="article">
-    <meta property="article:published_time" content="{$now->format('c')}">
-    <meta property="article:modified_time" content="{$now->format('c')}">
-    <meta property="article:expiration_time" content="{$now->format('c')}">
+    <meta property="article:published_time" content="{$publishedTime->format('c')}">
+    <meta property="article:modified_time" content="{$modifiedTime->format('c')}">
+    <meta property="article:expiration_time" content="{$expirationTime->format('c')}">
     <meta property="article:author:username" content="PiranhaGeorge">
     <meta property="article:section" content="Foo">
     <meta property="article:tag" content="Bar">

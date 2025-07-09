@@ -2,10 +2,10 @@
     <meta property="article:published_time" content="{{ $type->publishedTime->format('c') }}">
 @endif
 @if($type->modifiedTime)
-    <meta property="article:modified_time" content="{{ $type->publishedTime->format('c') }}">
+    <meta property="article:modified_time" content="{{ $type->modifiedTime->format('c') }}">
 @endif
 @if($type->expirationTime)
-    <meta property="article:expiration_time" content="{{ $type->publishedTime->format('c') }}">
+    <meta property="article:expiration_time" content="{{ $type->expirationTime->format('c') }}">
 @endif
 @if($type->author && !is_array($type->author))
     @include('honeystone-seo::open-graph.types.profile', ['type' => $type->author, 'alias' => 'article:author'])
